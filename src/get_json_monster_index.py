@@ -14,26 +14,27 @@ rows = cursor.fetchall()
 info_list = []
 
 for row in rows:
-    monster_url = row[2]
-    with open(monster_url, 'r', encoding='utf-8') as file:
-        html = file.read()
-    element_soup = BeautifulSoup(html, 'html.parser')
-
-
-    def get_text_from_selector(selector):
-        """从指定选择器获取文本."""
-        element = element_soup.select_one(selector)
-        return element.get_text(strip=True) if element else ''
-
-
-    def get_table_as_str(selector):
-        """从指定选择器提取表格并转换为字符串."""
-        table = element_soup.select_one(selector)
-        return str(table) if table else ''
-
-
-    monster_name = get_text_from_selector('#main_1 > div > div.f_min > div:nth-child(2) > table tr:nth-child(1) td.b')
-    # monster_species = get_text_from_selector('#main_1 > div > div.f_min > div:nth-child(2) > table tr:nth-child(2) td.b')
+    monster_name = row[1]
+    # monster_url = row[2]
+    # with open(monster_url, 'r', encoding='utf-8') as file:
+    #     html = file.read()
+    # element_soup = BeautifulSoup(html, 'html.parser')
+    #
+    #
+    # def get_text_from_selector(selector):
+    #     """从指定选择器获取文本."""
+    #     element = element_soup.select_one(selector)
+    #     return element.get_text(strip=True) if element else ''
+    #
+    #
+    # def get_table_as_str(selector):
+    #     """从指定选择器提取表格并转换为字符串."""
+    #     table = element_soup.select_one(selector)
+    #     return str(table) if table else ''
+    #
+    #
+    # monster_name = get_text_from_selector('#main_1 > div > div.f_min > div:nth-child(2) > table tr:nth-child(1) td.b')
+    # # monster_species = get_text_from_selector('#main_1 > div > div.f_min > div:nth-child(2) > table tr:nth-child(2) td.b')
     # from_table = get_table_as_str('#main_1 > div > div.f_min > table:nth-child(16)')
     # note = get_text_from_selector('#main_1 > div > div.f_min > div.box2')
     #
